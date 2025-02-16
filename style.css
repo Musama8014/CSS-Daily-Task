@@ -1,0 +1,69 @@
+#body {
+    background-color: beige;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.box {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin: 100px auto;
+    background-color: #87ceeb;
+    overflow: hidden;
+}
+
+.sun {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border-radius: 100px;
+    position: absolute;
+    top: 100px;
+    left: 150px;
+}
+
+.cloud {
+    width: 120px;
+    height: 60px;
+    background: #fff;
+    border-radius: 60px;
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    
+    animation: moveCloud 4s linear infinite alternate;
+}
+
+.cloud::before, 
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud::after {
+    width: 70px;
+    height: 70px;
+    top: -40px;
+    right: 30px;
+}
+
+/* Cloud Animation */
+@keyframes moveCloud {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(200px);
+    }
+}
