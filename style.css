@@ -1,152 +1,71 @@
-* {
-  box-sizing: border-box;
+
+#body {
+    background-color: beige;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
-
-body {
-  font-family: 'Muli', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-}
-
-
-.heading
-{
-    background-color: rebeccapurple;
-    margin-bottom: 800px;
-    margin-left: 50px;
+.box {
     width: 400px;
-    animation-name: heading;
-    animation-duration: 15s;
+    height: 400px;
     position: relative;
-    
+    margin: 100px auto;
+    background-color: #87ceeb;
+    overflow: hidden;
 }
-.container {
-  display: flex;
-  width: 90vw;
-  background-color: black;
-  margin-top: 60px;
-  animation-name: container;
-  animation-duration: 30s;
-}
-@keyframes container{
-    0%   {background-color:red; left:0px; top:0px;}
-    10%  {background-color:yellow; left:200px; top:0px;}
-    20%  {background-color:blue; left:200px; top:200px;}
-    30%  {background-color:green; left:0px; top:200px;}
-    40% {background-color:red; left:0px; top:0px;}
-    50%  {background-color:yellow; left:200px; top:0px;}
-    60%  {background-color:blue; left:200px; top:200px;}
-    70%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}}
-    
-.Card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 80vh;
-  border-radius: 50px;
-  color: #fff;
-  cursor: pointer;
-  flex: 0.5;
-  margin: 10px;
-  position: relative;
-  animation-name: panel;
-  animation-duration: 6s;
 
+.sun {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border-radius: 100px;
+    position: absolute;
+    top: 100px;
+    left: 150px;
 }
-@keyframes zoomInOut {
+
+.cloud {
+    width: 120px;
+    height: 60px;
+    background: #fff;
+    border-radius: 60px;
+    position: absolute;
+    top: 120px;
+    left: 50px;
+    
+    animation: moveCloud 4s linear infinite alternate;
+}
+
+.cloud::before, 
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud::after {
+    width: 70px;
+    height: 70px;
+    top: -40px;
+    right: 30px;
+}
+
+/* Cloud Animation */
+@keyframes moveCloud {
     0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(1);
+        transform: translateX(0px);
     }
     100% {
-        transform: scale(0);
+        transform: translateX(200px);
     }
 }
 
-/* Apply animation automatically to all cards */
-.Card {
-    animation: zoomInOut 5s ease-in-out;
-    transition: transform 0.9s ease-in-out;
-}
-
-
-.Card h3 {
-  font-size: 24px;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  margin: 0;
-  opacity: 2;
-  
-}
-
-.Card.active {
-  flex: 5;
-}
-
-.Card.active h3 {
-  opacity: 1;
-  transition: opacity 0.3s ease-in 0.4s;
-}
-
-
-@media (max-width: 400px) {
-  .container {
-    width: 10vw;
-  }
-
-  .Card:nth-of-type(4),
-  .Card:nth-of-type(5) {
-    display: none;
-  }
-}
-@keyframes heading {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}}
-
-    @keyframes text{
-        0%   {background-color:red; left:0px; top:0px;}
-        25%  {background-color:yellow; left:200px; top:0px;}
-        50%  {background-color:blue; left:200px; top:200px;}
-        75%  {background-color:green; left:0px; top:200px;}
-        100% {background-color:red; left:0px; top:0px;}}
-    
-        @keyframes moveUpAndColor {
-            0% {
-                transform: translateY(0);
-                color: red;
-            }
-            25% {
-                transform: translateY(-20px);
-                color: blue;
-            }
-            50% {
-                transform: translateY(-40px);
-                color: green;
-            }
-            75% {
-                transform: translateY(-60px);
-                color: orange;
-            }
-            100% {
-                transform: translateY(-80px);
-                color: purple;
-            }
-        }
-        
-        /* Apply animation automatically */
-        #text {
-            animation: moveUpAndColor 2s linear infinite;
-        }
- 
